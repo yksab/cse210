@@ -11,42 +11,86 @@ class Program
         // string magic = Console.ReadLine();
         // int magicNumber = int.Parse(magic);
 
-        string playAngain;
-        playAngain = "yes";
+        // string playAngain;
+        // playAngain = "yes";
 
-        while (playAngain == "yes")
+        // while (playAngain == "yes")
+        // {
+        //     Random randomGenerator = new Random();
+        //     int magicNumber = randomGenerator.Next(1, 100);
+        //     int guessNuber;
+        //     guessNuber = -1;
+        //     int tries;
+        //     tries = 1;
+        //     while (magicNumber != guessNuber)
+        //     {
+        //         Console.WriteLine("Enter a number.");
+        //         string guess = Console.ReadLine();
+        //         int guessNumber = int.Parse(guess);
+
+        //         tries = tries + 1;
+
+        //         if (magicNumber > guessNumber)
+        //         {
+        //             Console.WriteLine("Higher");
+        //         }
+        //         else if (magicNumber == guessNumber)
+        //         {
+        //             Console.WriteLine("You guessed it!");
+        //         }
+        //         else if (magicNumber < guessNumber)
+        //         {
+        //             Console.WriteLine("Lower");
+        //         }
+        //     }
+        //     Console.WriteLine($"You tried {tries} times.");
+        //     Console.WriteLine("Would you like to play again? ");
+        //     string playAgain = Console.ReadLine();
+        // }
+
+
+        string playAgain;
+        playAgain = "yes";
+
+        while (playAgain == "yes")
         {
             Random randomGenerator = new Random();
-            int magicNumber = randomGenerator.Next(1, 100);
-            int guessNuber;
-            guessNuber = -1;
+            int magicNumber = randomGenerator.Next(1, 101);
+
+            int guess = -1;
+
             int tries;
             tries = 1;
-            while (magicNumber != guessNuber)
+
+            while (guess != magicNumber)
             {
-                Console.WriteLine("Enter a number.");
-                string guess = Console.ReadLine();
-                int guessNumber = int.Parse(guess);
+                Console.Write("What is your guess? ");
+                guess = int.Parse(Console.ReadLine());
 
                 tries = tries + 1;
 
-                if (magicNumber > guessNumber)
+                if (magicNumber > guess)
                 {
                     Console.WriteLine("Higher");
                 }
-                else if (magicNumber == guessNumber)
-                {
-                    Console.WriteLine("You guessed it!");
-                }
-                else if (magicNumber < guessNumber)
+                else if (magicNumber < guess)
                 {
                     Console.WriteLine("Lower");
                 }
+                else
+                {
+                    Console.WriteLine("You guessed it!");
+                }
+
             }
+            
             Console.WriteLine($"You tried {tries} times.");
+
             Console.WriteLine("Would you like to play again? ");
-            string playAgain = Console.ReadLine();
+            playAgain = Console.ReadLine();
         }
 
+
+        
     }
 }
