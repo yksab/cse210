@@ -5,27 +5,51 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Exercise5 Project.");
+    
+        DisplayWelcomeMessage();
 
-        static void DisplayWelcome()
-        {
-            Console.WriteLine("Welcome to the Program!");
-        }
+        string name = PromptUserName();
 
-        static string PromptUserName()
-        {
-            Console.WriteLine("What is your name? ");
-            string name = ReadLine();
+        int number = PrompUserNumber();
 
-            return name;
-        }
+        int square = SquareNumber(number);
 
-        static int PrompUserNumber()
-        {
-            Console.WriteLine("What is your favorite number? ");
-            int number = Console.ReadLine();.
-            01
-        }
+        DisplayResult(name, square);
+    }      
+    
 
-
+    static void DisplayWelcomeMessage()
+    {
+        Console.WriteLine("Welcome to the Program!");
     }
+
+    static string PromptUserName()
+    {
+        Console.WriteLine("What is your name? ");
+        string name = Console.ReadLine();
+
+        return name;
+    }
+
+    static int PrompUserNumber()
+    {
+        Console.WriteLine("What is your favorite number? ");
+        string response = Console.ReadLine();
+        int number = int.Parse(response);
+            
+        return number;
+    }
+
+    static int SquareNumber(int number)
+    {
+        int square = number * number;
+
+        return square;
+    }
+
+    static void DisplayResult(string name, int squareNumber)
+    {
+        Console.WriteLine($"Name: {name}, Squre Number: {squareNumber}");
+    }
+        
 }
