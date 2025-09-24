@@ -1,29 +1,60 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Menu\n1. new entry\n2. Display journal\n3. save journal\n4.load jornal");
+        Console.Title = "Progammmmmmiing";
 
-        string choice = Console.ReadLine();
+        Console.Write("Menu\n1. new entry\n2. Display journal\n3. save journal\n4.load jornal");
 
-        if (choice = 1)
+        int choice = int.Parse(Console.ReadLine());
+
+        Journal myJournal = new Journal();
+        PromptGenerator messagePrompt = new PromptGenerator();
+
+
+        if (choice == 1)
+        {
+
+            Console.WriteLine(messagePrompt.GetRandomPrompt());
+
+            Console.WriteLine("Write a new entry");
+
+            string dataM = (Console.ReadLine());
+
+
+            Console.WriteLine("Name yr new entry");
+
+
+            myJournal.AddEntry(dataM);
+
+
+
+
+
+
+
+
+            int newEntry = Convert.ToInt(Console.ReadLine());
+
+            string response = Journal.AddEntry(newEntry);
+
+
+        }
+        else if (choice == 2)
         {
             //
         }
-        else (choice = 2)
+        else if (choice == 3)
         {
             //
         }
-        else(choice = 3)
+        else if (choice == 4)
         {
             //
         }
-        else(choice = 4)
-        {
-            //
-        }
-        
+
     }
 }
