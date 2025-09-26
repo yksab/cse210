@@ -9,11 +9,11 @@ public class Entry
     public Entry()
     {
         DateTime now = DateTime.Now;
-        _date = now.ToString(); 
+        _date = String.Format("{0:f}", now);
     }
 
     public void Display()
     {
-        Console.WriteLine(_date + ", " + _promptText + ", " + _entryText);
+        Console.WriteLine(_entryText);
     }
 }

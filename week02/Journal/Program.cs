@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic;
+using System.Net;
+using System.Xml.Serialization;
 
 class Program
 {
@@ -7,54 +8,56 @@ class Program
     {
         Console.Title = "Progammmmmmiing";
 
-        Console.Write("Menu\n1. new entry\n2. Display journal\n3. save journal\n4.load jornal");
+        int choice= -1;
+        
+        Journal newJournal = new Journal();
+        PromptGenerator newPrompt = new PromptGenerator();
 
-        int choice = int.Parse(Console.ReadLine());
-
-        Journal myJournal = new Journal();
-        PromptGenerator messagePrompt = new PromptGenerator();
-
-
-        if (choice == 1)
+        while (choice != 5)
         {
+            Console.WriteLine("Menu\n1. new entry\n2. Display journal\n3. Save journal entries\n4. load journal\n5. Quit");
 
-            Console.WriteLine(messagePrompt.GetRandomPrompt());
+            choice = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Write a new entry");
+            if (choice == 1)
+            {
+                string prompt = newPrompt.GetRandomPrompt();
+                Console.WriteLine(prompt);
 
-            string dataM = (Console.ReadLine());
+                Entry newEntry = new Entry();
+                newEntry._promptText = prompt;
 
+                Console.WriteLine("enter journal entry");
+                newEntry._entryText = Console.ReadLine();
 
-            Console.WriteLine("Name yr new entry");
+                newJournal.AddEntry(newEntry);
+            }
+            else if (choice == 2)
+            {
+                newJournal.DisplayAll();
+            }
+            else if (choice == 3)
+            {
+                Console.WriteLine("Enter a filename");
+                string saveFilename = Console.ReadLine();
 
+                newJournal.SaveToFile(saveFilename);
+            }
+            else if (choice == 4)
+            {
+                Console.WriteLine("Enter a filename");
+                string loadFilename = Console.ReadLine();
 
-            myJournal.AddEntry(dataM);
-
-
-
-
-
-
-
-
-            int newEntry = Convert.ToInt(Console.ReadLine());
-
-            string response = Journal.AddEntry(newEntry);
-
-
-        }
-        else if (choice == 2)
-        {
-            //
-        }
-        else if (choice == 3)
-        {
-            //
-        }
-        else if (choice == 4)
-        {
-            //
-        }
-
+                newJournal.LoadFromFile(loadFilename);
+            }
+            else if (choice == 5)
+            {
+                continue;
+            }
+            else
+            {
+                Console.WriteLine("wrong button, try again");
+            }
+        }   
     }
 }
