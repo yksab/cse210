@@ -17,7 +17,7 @@ public class Journal
     {
         foreach (Entry i in _entries)
         {
-            Console.WriteLine(i._date + ", " + i._promptText + "/n" + i._entryText);
+            i.Display();
         }
     }
 
