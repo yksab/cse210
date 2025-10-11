@@ -18,5 +18,7 @@ public class Youtube
         {
             video.DisplayVideos();
         }
+
+        Console.WriteLine("\n\n");
     }
 }
