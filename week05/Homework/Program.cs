@@ -5,9 +5,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        string name = "Samuel Bennett";
-        string topic = "Multiplication";
-        Assignment a = new Assignment(name, topic);
-        a.GetSummary();
+        Assignment newAssignment = new Assignment("Basky", "maths");
+
+        newAssignment.GetSummary();
+
+        MathAssignment newMathAssignment = new MathAssignment("Jeff", "maths", "section 8", "problems 1 to 4");
+
+        newMathAssignment.GetHomeworkList();
     }
 }
