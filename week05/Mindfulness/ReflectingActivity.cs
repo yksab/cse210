@@ -57,12 +57,7 @@ public class ReflectingActivity : Activity
             int number = numberRandom.Next(0, _questions.Count());
             Console.Write("\t-- " + _questions[number]);
             _questions.Remove(_questions[number]);
-        }
-        else
-        {
-            Console.WriteLine("\nSorry no more questions.");
-        }
-        
+        }    
     }
 
     public void DisplayPrompt()
@@ -91,6 +86,13 @@ public class ReflectingActivity : Activity
             GetRandomQuestion();
             ShowSpinner();
             Console.WriteLine("\n");
+            
+            if (_questions.Count() == 0)
+            {
+                Console.Write("\n\t---- Sorry no more questions.");
+                ShowCountDown();
+                break;
+            }
         }
     }
 }

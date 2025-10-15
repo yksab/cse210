@@ -40,7 +40,7 @@ public class Activity
     public void ShowSpinner(int seconds=5)
     {
         string[] _animationstring1 = new string[4] { "|", "\\", "-", "/" };
-        string[] _animationstring2 = new string[6] { "A", "B", "C", "c", "b", "a" };
+        string[] _animationstring2 = new string[6] { "C", "H", "R", "I", "S", "T" };
         string[] _animationstring3 = new string[2] { ":)", ";)" };
         string[] _animationstring4 = new string[4] { "Z", "ZZ", "ZZZ", "ZZ" };
 
@@ -52,7 +52,7 @@ public class Activity
         DateTime _endTime = _startTime.AddSeconds(seconds);
 
         int i;
-        int timer = 250;
+        int timer = 200;
 
         for(i = 0; DateTime.Now <= _endTime; i++)
         {

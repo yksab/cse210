@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        //Exceed requirements: 1. added 4 other randomly choosen spinners. 2. in reflection questions prompt the questions dont repeat, when all the questions r used a message says theres no more questions and the program carries onto the next step 
+
         string[] name = new string[3] { "Breathing Activity", "Reflection Activity", "Listing Activity" };
         string[] description = new string[3] { "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area." };
 
