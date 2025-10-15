@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 public class ReflectingActivity : Activity
 {
@@ -35,6 +36,10 @@ public class ReflectingActivity : Activity
         DisplayQuestions();
 
         DisplayEndingMessage();
+
+        _prompts.Clear();
+
+        _questions.Clear();
     }
 
     public void GetRandomPrompt()
@@ -51,11 +56,11 @@ public class ReflectingActivity : Activity
             Random numberRandom = new Random();
             int number = numberRandom.Next(0, _questions.Count());
             Console.Write("\t-- " + _questions[number]);
-            remove._questions[number];
+            _questions.Remove(_questions[number]);
         }
         else
         {
-            //
+            Console.WriteLine("\nSorry no more questions.");
         }
         
     }
@@ -84,7 +89,8 @@ public class ReflectingActivity : Activity
         while (DateTime.Now <= endTime)
         {
             GetRandomQuestion();
-            ShowSpinner(10);
+            ShowSpinner();
+            Console.WriteLine("\n");
         }
     }
 }

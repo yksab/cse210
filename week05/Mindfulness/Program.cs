@@ -12,29 +12,29 @@ class Program
         while (decision != 4)
         {
             Console.Clear();
-            Console.WriteLine("Menu Options\n\t1. Start breathing activity\n\t2. Start reflecting activity\n\t3. Start listing activity\n\t4. Quit\n");
+            Console.WriteLine("Menu Options\n\t1. Start breathing activity\n\t2. Start reflecting activity\n\t3. Start listing activity\n\t4. Quit");
             Console.Write("\nSelect a numbered choice from the menu: ");
             
-            decision = int.Parse(Console.ReadLine()) - 1;
+            decision = int.Parse(Console.ReadLine());
 
             if (decision == 1)
             {
-                BreathingActivity newBreathingActivity = new BreathingActivity(name[decision], description[decision]);
-                newBreathingActivity.Run();
+                BreathingActivity newBreathingActivity = new BreathingActivity(name[decision-1], description[decision-1]);
+                newBreathingActivity.Run(); 
             }
             else if (decision == 2)
             {
-                ListingActivity newListingAcitivity = new ListingActivity(name[decision], description[decision]);
-                newListingAcitivity.Run();
+                ReflectingActivity newReflectingActivity = new ReflectingActivity(name[decision-1], description[decision-1]);
+                newReflectingActivity.Run();
             }
             else if (decision == 3)
             {
-                ReflectingActivity newReflectingActivity = new ReflectingActivity(name[decision], description[decision]);
-                newReflectingActivity.Run();
+                ListingActivity newListingAcitivity = new ListingActivity(name[decision-1], description[decision-1]);
+                newListingAcitivity.Run();
             }
             else if (decision == 4)
             {
-                //
+                continue;
             }
         }
     }

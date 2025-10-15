@@ -18,12 +18,12 @@ public class BreathingActivity : Activity
         while (DateTime.Now <= endTime)
         {
             Random random = new Random();
-            int number = random.Next(3, 7);
+            int number = random.Next(4, 7);
 
-            Console.Write("breath in...");
+            Console.WriteLine("\nbreath in...");
             ShowCountDown(number);
 
-            Console.Write("breath out ...");
+            Console.WriteLine("\nbreath out ...");
             ShowCountDown(number);
         }
 

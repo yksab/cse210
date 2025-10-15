@@ -29,10 +29,9 @@ public class Activity
 
     public void DisplayEndingMessage()
     {
-        Console.Clear();
-        Console.WriteLine("Well done!!");
+        Console.WriteLine("\nWell done!!");
         ShowSpinner();
-        Console.WriteLine("You have completed " + _duration + " seconds of the " + _name + " Activitiy.");
+        Console.WriteLine("\nYou have completed " + _duration + " seconds of the " + _name + ".");
         ShowSpinner();
 
         Console.Clear();
@@ -46,32 +45,76 @@ public class Activity
         string[] _animationstring4 = new string[4] { "Z", "ZZ", "ZZZ", "ZZ" };
 
         Random _random = new Random();
-        string animationNumber = _random.Next(1, 5).ToString();
-        string animationRandom = String.Concat("_animationstring", animationNumber);
-        int animationCount = animationNumber.Count();
+        string animationRandom = _random.Next(1, 5).ToString();
+        string animationWord = String.Concat("_animationstring", animationRandom);
 
         DateTime _startTime = DateTime.Now;
         DateTime _endTime = _startTime.AddSeconds(seconds);
 
-        for(int i = 0; _startTime <= _endTime; i++)
-        {
-            Console.Write(animationRandom[i]);
-            Thread.Sleep(1000);
+        int i;
+        int timer = 250;
 
-            if (animationRandom == "_animationstring4")
+        for(i = 0; DateTime.Now <= _endTime; i++)
+        {
+            Thread.Sleep(timer);
+
+            if(animationWord == "_animationstring1")
             {
-                for(int j = 0; j < animationCount; j++)
+                Console.Write(_animationstring1[i]);
+                Thread.Sleep(timer);
+
+                if(i == 3)
+                {
+                    i=-1;
+                    Console.Write("\b \b");
+                }
+                else
+                {
+                    Console.Write("\b \b");
+                } 
+            }
+            else if(animationWord == "_animationstring2")
+            {
+                Console.Write(_animationstring2[i]);
+                Thread.Sleep(timer);
+
+                if(i == 5)
+                {
+                    i = -1; 
+                    Console.Write("\b \b");
+                }
+                else
                 {
                     Console.Write("\b \b");
                 }
             }
-            else if(animationRandom == "_animation3")
+            else if(animationWord == "_animationstring3")
             {
-                Console.Write("\b \b\b \b");
+                Console.Write(_animationstring3[i]);
+                Thread.Sleep(timer);
+
+                if(i == 1)
+                {
+                    i = -1;
+                    Console.Write("\b\b  \b\b");
+                }
+                else
+                {
+                    Console.Write("\b\b  \b\b");
+                }   
             }
-            else
+            else if (animationWord == "_animationstring4")
             {
-                Console.Write("\b ");
+                Console.Write(_animationstring4[i]);
+                Thread.Sleep(timer);
+
+                switch (i)
+                {
+                    case 0 : Console.Write("\b \b"); break;
+                    case 1 : Console.Write("\b\b  \b\b"); break;
+                    case 2 : Console.Write("\b\b\b   \b\b\b"); break;
+                    case 3 : Console.Write("\b\b  \b\b"); i = -1; break;
+                }
             }
         }
     }
@@ -79,11 +122,11 @@ public class Activity
     public void ShowCountDown(int seconds=5)
     {
 
-        for (int i = seconds; i >= 0; i--)
+        for (int i = seconds; i > 0; i--)
         {
             Console.Write(i);
             Thread.Sleep(1000);
-            Console.Write("\br \br");
+            Console.Write("\b \b");
         }
     }
 
