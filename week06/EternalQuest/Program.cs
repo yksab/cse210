@@ -4,6 +4,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the EternalQuest Project.");
+        Console.Clear();
+
+        GoalManager newGoalManager = new GoalManager();
+
+        newGoalManager.DisplayPlayerInfo();
+
+        newGoalManager.Start();
+        int menuChoice = int.parse(Console.Readline());
+
+        if (menuChoice == 1)
+
+
+        
+
+
     }
 }
