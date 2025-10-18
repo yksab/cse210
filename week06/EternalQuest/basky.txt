@@ -1,0 +1,5 @@
+S,495
+G,Jump,10m,15,True
+E,go temple,every month,40
+C,exercise,3 times a week,50,7,200,4
+G,clean room,on tuesday,35,False
